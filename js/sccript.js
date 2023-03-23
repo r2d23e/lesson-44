@@ -250,6 +250,9 @@ for (let item of users) {
         emails.info.push(item)
     } else if (dote == '.com') {
         emails.com.push(item)
+
+       
+    }else{
         other.push(item)//те которых нет по заданию
     }
 
