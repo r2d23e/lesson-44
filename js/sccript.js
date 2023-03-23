@@ -239,15 +239,20 @@ let emails = {
 }
 let other = []
 
-let email = []
-let for_org = 3
-let org = []
-let last_3_for_org = {}
-
 for (let item of users) {
-    
-    if (item.email.length == 3) {
-        email.push(item)
+    let all_emails = item.email //все email
+    let dote = all_emails.slice(all_emails.lastIndexOf('.'), all_emails.length)  //берет с точки до конца
+    if (dote == '.org') {//разделяет в масив
+        emails.org.push(item)//сохроняет в масив
+    } else if (dote == '.net') {//разделяет в масив
+        emails.net.push(item)
+    } else if (dote == '.info') {
+        emails.info.push(item)
+    } else if (dote == '.com') {
+        emails.com.push(item)
+        other.push(item)//те которых нет по заданию
     }
+
 }
-console.log(last_3_for_org);
+console.log(emails);//которые есть по условию
+console.log(other);//те которых нет по заданию
