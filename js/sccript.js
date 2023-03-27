@@ -238,24 +238,11 @@ let emails = {
     com: []
 }
 let other = []
+emails.org = users.filter(item => item.website.slice(item.website.indexOf('.'), item.website.length) == ".org")
+emails.net = users.filter(item => item.website.slice(item.website.indexOf('.'), item.website.length) == ".net")
+emails.info = users.filter(item => item.website.slice(item.website.indexOf('.'), item.website.length) == ".info")
+emails.com = users.filter(item => item.website.slice(item.website.indexOf('.'), item.website.length) == ".com")
 
-for (let item of users) {
-    let all_emails = item.email //все email
-    let dote = all_emails.slice(all_emails.lastIndexOf('.'), all_emails.length)  //берет с точки до конца
-    if (dote == '.org') {//разделяет в масив
-        emails.org.push(item)//сохроняет в масив
-    } else if (dote == '.net') {//разделяет в масив
-        emails.net.push(item)
-    } else if (dote == '.info') {
-        emails.info.push(item)
-    } else if (dote == '.com') {
-        emails.com.push(item)
 
-       
-    }else{
-        other.push(item)//те которых нет по заданию
-    }
 
-}
 console.log(emails);//которые есть по условию
-console.log(other);//те которых нет по заданию
